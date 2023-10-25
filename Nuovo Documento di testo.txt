@@ -1,0 +1,2 @@
+MAIL_USERNAME=tesitest00@gmail.com
+MAIL_PASSWORD=bjlz gbta agfz ozjl

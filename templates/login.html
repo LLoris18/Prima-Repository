@@ -1,0 +1,48 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}Pagina Login{% endblock %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block navbar %}
+<div class="navbar navbar-inverse" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle"
+			data-toggle="collapse" data-target=".navbar-collapse">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/">Home</a>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+	{% for message in get_flashed_messages() %}
+	<div class="alert alert-warning">
+		<button type="button" class= "close" data-dismiss="alert">&times;</button>
+		{{message}}
+	</div>
+	{%endfor%}
+	<div class="page-header">
+		<p> Nuovo utente?
+			<a href="{{ url_for('register') }}">
+				Clicca qui per registrarti
+			</a>
+		</p>
+		<h1> Pagina Login </h1>
+		<ul class="nav navbar-nav navbar-right">
+			{% if current_user.is_authenticated %}
+			<li><a href="{{url_for('logout') }}">Logout</a></li>
+			{% else %}
+			<li><a href="{{url_for('login') }}">Login</a></li>
+			{% endif %}
+		</ul>
+	</div>
+	<div class = "col-md-4">
+	{{ wtf.quick_form(form) }}
+	</div>
+</div>
+{% endblock %}
