@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conferma il tuo account</title>
+</head>
+<body>
+    <h2>Un nuovo utente è stato aggiunto al database!</h2>
+    <p><a href="{{ url_for('confirm', token=token, _external=True) }}">Visualizza le informazioni dell'utente</a></p>
+</body>
+</html>
